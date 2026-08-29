@@ -5,7 +5,7 @@
 <header><div class="brand"><b>COUNTY LINE</b><span>RACING • STREET & STRIP</span></div><div class="hudtop"><span>REP <b id="repTop">0</b></span><div class="money">$<span id="cash">2500</span></div></div></header>
 <main>
 <section id="home" class="screen active">
-  <div class="hero"><div class="heroGlow"></div><div class="badge">ALPHA 0.7 • RENDERED VEHICLES</div>
+  <div class="hero"><div class="heroGlow"></div><div class="badge">ALPHA 0.8 • VEHICLE ASSET FIX</div>
     <h1>BUILD IT.<br>LINE IT UP.<br><em>PROVE IT.</em></h1>
     <p>Backroad grudge racing. Your truck. Your tune. Your reputation.</p>
     <button onclick="go('garage')">ENTER RACIN' CAJUN PERFORMANCE</button>
@@ -19,10 +19,10 @@
   <div class="sectionHead"><div><small>RACIN' CAJUN PERFORMANCE</small><h2>GARAGE</h2></div><span class="status">READY</span></div>
   <div class="garageScene">
     <div class="shopSign">RACIN' CAJUN<br><i>PERFORMANCE</i></div><div class="toolbox"></div><div class="tires"></div>
-    <div class="vehicle player large renderedVehicle"><img class="vehicleRender" src="assets/cherry-bomb-render.png" alt="Cherry Bomb rendered street truck"></div>
+    <div class="vehicle player large renderedVehicle"><img class="vehicleRender" src="renegade-render.png" alt="1999 Iron Horse Renegade R/T street truck"></div>
     <div class="floorLogo">COUNTY LINE</div>
   </div>
-  <div class="vehicleTitle"><div><small>YOUR TRUCK</small><h3>1999 IRON HORSE RENEGADE R/T</h3><p>Regular Cab • Short Bed • RWD • “CHERRY BOMB”</p></div><span class="classTag">STREET</span></div>
+  <div class="vehicleTitle"><div><small>YOUR TRUCK</small><h3>1999 IRON HORSE RENEGADE R/T</h3><p>Regular Cab • Short Bed • RWD</p></div><span class="classTag">STREET</span></div>
   <div class="grid specs"><div class="card"><label>POWER</label><b id="hpText">245 HP</b><small>5.9L V8</small></div><div class="card"><label>TORQUE</label><b>335 LB-FT</b><small>NA</small></div><div class="card"><label>WEIGHT</label><b>3,850 LB</b><small>Race weight</small></div><div class="card"><label>REAR GEAR</label><b id="gearText">3.55</b><small>Ford 9-style rear</small></div></div>
   <button onclick="go('build')">BUILD & TUNE</button><button class="secondary" onclick="go('race')">TAKE IT TO THE STREET</button>
 </section>
@@ -41,8 +41,8 @@
   <div class="track" id="track">
     <div class="skyGlow"></div><div class="moon"></div><div class="trees"></div><div class="crowd"></div><div class="finish"></div><div class="startLine"></div>
     <div class="flagger"><span>●</span><i id="flashLamp"></i></div><div id="stageLamp" class="stageLamp"></div>
-    <div id="oppTruck" class="raceVehicle opponent spriteVehicle"><img class="vehicleBody" src="assets/outrider-body.svg" alt="Liberty Outrider opponent truck"><i class="wheel front"></i><i class="wheel rear"></i></div>
-    <div id="raceTruck" class="raceVehicle player renderedRaceVehicle"><div class="smoke"></div><img class="vehicleRender" src="assets/cherry-bomb-render.png" alt="Cherry Bomb race truck"></div>
+    <div id="oppTruck" class="raceVehicle opponent spriteVehicle"><img class="vehicleBody" src="outrider-body.svg" alt="Liberty Outrider opponent truck"><i class="wheel front"></i><i class="wheel rear"></i></div>
+    <div id="raceTruck" class="raceVehicle player renderedRaceVehicle"><div class="smoke"></div><img class="vehicleRender" src="renegade-render.png" alt="1999 Iron Horse Renegade R/T race truck"></div>
     <div class="roadDash"></div>
   </div>
   <div class="dash"><div><small>RPM</small><b id="raceRpm">1100</b></div><div><small>GEAR</small><b id="raceGear">1</b></div><div><small>MPH</small><b id="raceSpeed">0</b></div><div><small>FEET</small><b id="raceDist">0</b></div></div>
