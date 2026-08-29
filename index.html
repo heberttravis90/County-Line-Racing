@@ -1,66 +1,11 @@
-<!doctype html>
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>County Line Racing</title><link rel="stylesheet" href="style.css"></head>
-<body>
-<header><div class="brand"><b>COUNTY LINE</b><span>RACING • STREET & STRIP</span></div><div class="hudtop"><span>REP <b id="repTop">0</b></span><div class="money">$<span id="cash">2500</span></div></div></header>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><title>County Line Racing</title><link rel="stylesheet" href="style.css"></head><body>
+<header><div class="brand"><b>COUNTY LINE</b><span>RACING • STREET & STRIP</span></div><div class="top"><small>REP <b id="repTop">0</b></small><strong>$<span id="cash">3900</span></strong></div></header>
 <main>
-<section id="home" class="screen active">
-  <div class="hero"><div class="heroGlow"></div><div class="badge">ALPHA 0.9 • 1/8 MILE RACE REBUILD</div>
-    <h1>BUILD IT.<br>LINE IT UP.<br><em>PROVE IT.</em></h1>
-    <p>Backroad grudge racing. Your truck. Your tune. Your reputation.</p>
-    <button onclick="go('garage')">ENTER RACIN' CAJUN PERFORMANCE</button>
-  </div>
-  <div class="card shopcard"><div><small>HOME SHOP</small><h3>RACIN' CAJUN PERFORMANCE</h3><p>Driveway Shop • Folsom Parish Circuit</p></div><div class="level">LVL<br><b>1</b></div></div>
-  <div class="stats"><div><b id="wins">0</b><span>WINS</span></div><div><b id="losses">0</b><span>LOSSES</span></div><div><b id="rep">0</b><span>REP</span></div></div>
-  <button class="secondary" onclick="go('race')">FIND A STREET RACE</button>
-</section>
-
-<section id="garage" class="screen">
-  <div class="sectionHead"><div><small>RACIN' CAJUN PERFORMANCE</small><h2>GARAGE</h2></div><span class="status">READY</span></div>
-  <div class="garageScene">
-    <div class="shopSign">RACIN' CAJUN<br><i>PERFORMANCE</i></div><div class="toolbox"></div><div class="tires"></div>
-    <div class="vehicle player large renderedVehicle"><img class="vehicleRender" src="renegade-render.png" alt="1999 Iron Horse Renegade R/T street truck"></div>
-    <div class="floorLogo">COUNTY LINE</div>
-  </div>
-  <div class="vehicleTitle"><div><small>YOUR TRUCK</small><h3>1999 IRON HORSE RENEGADE R/T</h3><p>Regular Cab • Short Bed • RWD</p></div><span class="classTag">STREET</span></div>
-  <div class="grid specs"><div class="card"><label>POWER</label><b id="hpText">245 HP</b><small>5.9L V8</small></div><div class="card"><label>TORQUE</label><b>335 LB-FT</b><small>NA</small></div><div class="card"><label>WEIGHT</label><b>3,850 LB</b><small>Race weight</small></div><div class="card"><label>REAR GEAR</label><b id="gearText">3.55</b><small>Ford 9-style rear</small></div></div>
-  <button onclick="go('build')">BUILD & TUNE</button><button class="secondary" onclick="go('race')">TAKE IT TO THE STREET</button>
-</section>
-
-<section id="build" class="screen">
-  <h2>BUILD & TUNE</h2><p class="sub">Changes affect the truck on the track. There is no magic “stage” upgrade.</p>
-  <div class="card tuneCard"><div class="tuneTitle"><div><small>FINAL DRIVE</small><h3>REAR GEAR</h3></div><b id="gearText2">3.55</b></div><p>More gear hits harder down low. Too much can turn the tire into smoke.</p><input id="gear" type="range" min="3.23" max="4.56" step=".01" value="3.55" oninput="updateGear(this.value)"><div class="range"><span>3.23 STREET</span><span>4.56 STRIP</span></div></div>
-  <div class="card tuneCard"><div class="tuneTitle"><div><small>ENGINE</small><h3>SHIFT POINT</h3></div><b id="shiftVal">5200 RPM</b></div><p>Hit the shift close to your selected RPM. Early and late shifts cost ET.</p><input id="shift" type="range" min="4500" max="6000" step="100" value="5200" oninput="shiftVal.textContent=this.value+' RPM'"></div>
-  <div class="card"><small>BASELINE ESTIMATE</small><div class="estimate"><span>1/8 MILE<b id="estEt">9.8–10.2</b></span><span>TRAP<b id="estMph">70–74 MPH</b></span></div></div>
-  <button onclick="saveTune()">SAVE TUNE</button>
-</section>
-
-<section id="race" class="screen">
-  <div class="raceHeader"><div><small>TONIGHT • COUNTY ROAD 12</small><h2>GRUDGE RACE</h2></div><div class="pot">$400 POT</div></div>
-  <div class="opponentCard"><div class="avatar">JD</div><div><small>OPPONENT</small><b>JAX “DIESEL” DUPRE</b><span>1998 Liberty Outrider • 260 HP</span></div><div class="record">8–5</div></div>
-  <div class="track perspectiveTrack" id="track">
-    <div class="nightSky"><div class="moon"></div><div class="horizonTrees"></div></div>
-    <div class="roadWorld"><div class="roadTexture"></div><div class="centerMarks"></div><div class="edgeLine leftEdge"></div><div class="edgeLine rightEdge"></div></div>
-    <div class="distanceBoard" id="distanceBoard">START • 0 / 660 FT</div>
-    <div class="finishGate" id="finishGate"><span>FINISH • 660 FT</span><i></i></div>
-    <div class="startPaint"></div>
-    <div class="flagger"><span>●</span><i id="flashLamp"></i></div><div id="stageLamp" class="stageLamp"></div>
-    <div id="oppTruck" class="raceVehicle opponent rearTruck opponentRear"><div class="rearCab"></div><div class="rearBed"></div><div class="tailgate">OUTRIDER</div><i class="rearWheel l"></i><i class="rearWheel r"></i><i class="tailLight l"></i><i class="tailLight r"></i></div>
-    <div id="raceTruck" class="raceVehicle player rearTruck playerRear"><div class="smoke"></div><div class="rearCab"></div><div class="rearBed"></div><div class="tailgate"><b>R/T</b></div><div class="greenRearStripe"></div><i class="rearWheel l"></i><i class="rearWheel r"></i><i class="tailLight l"></i><i class="tailLight r"></i></div>
-  </div>
-  <div class="dash"><div><small>RPM</small><b id="raceRpm">1100</b></div><div><small>GEAR</small><b id="raceGear">1</b></div><div><small>MPH</small><b id="raceSpeed">0</b></div><div><small>FEET</small><b id="raceDist">0</b></div></div>
-  <div id="shiftLight" class="shiftLight">SHIFT</div><div class="tach"><i id="tachFill"></i></div>
-  <div class="heat"><small>TIRE HEAT</small><span><i id="tireHeat"></i></span></div>
-  <div id="raceMsg" class="raceMsg">$200 GRUDGE RACE</div>
-  <button id="raceBtn" onclick="raceAction()">START RACE</button><button id="shiftBtn" class="shiftBtn hidden" onclick="shiftGear()">SHIFT</button>
-  <div id="slip" class="card slip hidden"></div>
-</section>
-
-<section id="career" class="screen">
-  <h2>CAREER</h2><div class="card"><small>LOCAL ROOKIE</small><h3>MAKE A NAME FOR YOURSELF</h3><p>Race clean, earn cash, and build the driveway into a real performance shop.</p><progress id="prog" max="100" value="0"></progress><small><span id="rep2">0</span> / 100 REP TO STREET REGULAR</small></div>
-  <div class="careerSteps"><div class="activeStep"><b>1</b><span>Driveway Shop<small>Unlocked</small></span></div><div><b>2</b><span>Rented Bay<small>100 REP</small></span></div><div><b>3</b><span>Performance Shop<small>350 REP</small></span></div></div>
-  <div class="card locked"><h3>NEXT MAJOR BUILD</h3><p>Dealership • Parts inventory • Engine builder • The List • Multiplayer race codes • More vehicles</p></div>
-</section>
-</main>
-<nav><button data-screen="home" onclick="go('home')">⌂<span>HOME</span></button><button data-screen="garage" onclick="go('garage')">▣<span>GARAGE</span></button><button data-screen="race" class="raceNav" onclick="go('race')">●<span>RACE</span></button><button data-screen="build" onclick="go('build')">⚙<span>TUNE</span></button><button data-screen="career" onclick="go('career')">★<span>CAREER</span></button></nav>
-<script src="app.js"></script></body></html>
+<section id="home" class="screen active"><div class="hero"><div class="tag">ALPHA 2.0 • CLEAN RESTART</div><h1>BUILD IT.<br>LINE IT UP.<br><em>PROVE IT.</em></h1><p>A fresh County Line foundation. Real race motion first. Everything else builds from here.</p><button onclick="go('race')">GO RACING</button></div><div class="stats"><div><b id="wins">0</b><span>WINS</span></div><div><b id="losses">0</b><span>LOSSES</span></div><div><b id="rep">0</b><span>REP</span></div></div></section>
+<section id="garage" class="screen"><h2>GARAGE</h2><div class="garage"><div class="shop">RACIN' CAJUN<br><i>PERFORMANCE</i></div><canvas id="garageCanvas"></canvas></div><div class="card"><small>YOUR TRUCK</small><h3>1999 IRON HORSE RENEGADE R/T</h3><p>Regular Cab • Short Bed • RWD</p><div class="specrow"><span>245 HP</span><span>335 LB-FT</span><span>3,850 LB</span></div></div><button onclick="go('tune')">BUILD & TUNE</button><button class="secondary" onclick="go('race')">TAKE IT TO THE STREET</button></section>
+<section id="race" class="screen"><div class="raceHead"><div><small>COUNTY ROAD 12 • 1/8 MILE</small><h2>GRUDGE RACE</h2></div><b>$400 POT</b></div><div class="opp"><span>JD</span><div><small>OPPONENT</small><b>JAX “DIESEL” DUPRE</b><i>1998 Liberty Outrider • 260 HP</i></div><strong>8–5</strong></div>
+<div class="raceWrap"><canvas id="raceCanvas"></canvas><div class="distance" id="distanceBoard">START • 0 / 660 FT</div><div class="stageDot" id="stageDot"></div><div class="flash" id="flash"></div></div>
+<div class="dash"><div><small>RPM</small><b id="raceRpm">1100</b></div><div><small>GEAR</small><b id="raceGear">1</b></div><div><small>MPH</small><b id="raceSpeed">0</b></div><div><small>FEET</small><b id="raceDist">0</b></div></div><div class="tach"><i id="tachFill"></i></div><div class="heat"><small>TIRE HEAT</small><span><i id="tireHeat"></i></span></div><div id="raceMsg" class="msg">HOLD BURNOUT • BUILD TIRE HEAT</div><button id="raceBtn">HOLD BURNOUT</button><button id="shiftBtn" class="shift hidden">SHIFT</button><div id="slip" class="card hidden"></div></section>
+<section id="tune" class="screen"><h2>BUILD & TUNE</h2><div class="card"><small>FINAL DRIVE</small><h3>REAR GEAR <b id="gearText">3.55</b></h3><input id="gear" type="range" min="3.23" max="4.56" step=".01" value="3.55"><p>More gear hits harder. Too much gear can blow the tire off.</p></div><div class="card"><small>ENGINE</small><h3>SHIFT POINT <b id="shiftText">5200 RPM</b></h3><input id="shift" type="range" min="4500" max="6000" step="100" value="5200"><p>Shift close to your selected RPM. Early or late costs ET.</p></div><button onclick="saveTune()">SAVE TUNE</button></section>
+<section id="career" class="screen"><h2>CAREER</h2><div class="card"><small>LOCAL ROOKIE</small><h3>MAKE A NAME FOR YOURSELF</h3><p>Race, earn cash, build reputation, and turn the driveway into a real performance shop.</p><progress id="prog" max="100" value="0"></progress></div></section>
+</main><nav><button data-screen="home" onclick="go('home')">⌂<span>HOME</span></button><button data-screen="garage" onclick="go('garage')">▣<span>GARAGE</span></button><button class="raceNav" data-screen="race" onclick="go('race')">●<span>RACE</span></button><button data-screen="tune" onclick="go('tune')">⚙<span>TUNE</span></button><button data-screen="career" onclick="go('career')">★<span>CAREER</span></button></nav><script src="app.js"></script></body></html>
