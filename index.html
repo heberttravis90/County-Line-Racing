@@ -38,19 +38,15 @@
 <section id="race" class="screen">
   <div class="raceHeader"><div><small>TONIGHT • COUNTY ROAD 12</small><h2>GRUDGE RACE</h2></div><div class="pot">$400 POT</div></div>
   <div class="opponentCard"><div class="avatar">JD</div><div><small>OPPONENT</small><b>JAX “DIESEL” DUPRE</b><span>1998 Liberty Outrider • 260 HP</span></div><div class="record">8–5</div></div>
-  <div class="track" id="track">
-    <div class="skyGlow"></div><div class="moon"></div><div class="trees"></div><div class="crowd"></div><div class="roadShoulder topShoulder"></div><div class="roadShoulder bottomShoulder"></div><div class="laneDivider"></div><div class="finishPost topPost"></div><div class="finishPost bottomPost"></div><div class="distanceBoard" id="distanceBoard">START • 0 / 660 FT</div><div class="finish"></div><div class="startLine"></div><div class="roadStripe stripe1"></div><div class="roadStripe stripe2"></div><div class="roadStripe stripe3"></div><div class="roadStripe stripe4"></div>
+  <div class="track perspectiveTrack" id="track">
+    <div class="nightSky"><div class="moon"></div><div class="horizonTrees"></div></div>
+    <div class="roadWorld"><div class="roadTexture"></div><div class="centerMarks"></div><div class="edgeLine leftEdge"></div><div class="edgeLine rightEdge"></div></div>
+    <div class="distanceBoard" id="distanceBoard">START • 0 / 660 FT</div>
+    <div class="finishGate" id="finishGate"><span>FINISH • 660 FT</span><i></i></div>
+    <div class="startPaint"></div>
     <div class="flagger"><span>●</span><i id="flashLamp"></i></div><div id="stageLamp" class="stageLamp"></div>
-    <div id="oppTruck" class="raceVehicle opponent spriteVehicle"><img class="vehicleBody" src="outrider-body.svg" alt="Liberty Outrider opponent truck"><i class="wheel front"></i><i class="wheel rear"></i></div>
-    <div id="raceTruck" class="raceVehicle player animatedRenegade">
-      <div class="smoke"></div>
-      <div class="raceBody">
-        <div class="bed"></div><div class="cab"></div><div class="glass windshield"></div><div class="glass sideWindow"></div>
-        <div class="hood"></div><div class="grille"></div><div class="headlamp"></div><div class="greenStripe"></div><div class="rtBadge">R/T</div>
-      </div>
-      <i class="animWheel front"><b></b></i><i class="animWheel rear"><b></b></i>
-    </div>
-    <div class="roadDash"></div>
+    <div id="oppTruck" class="raceVehicle opponent rearTruck opponentRear"><div class="rearCab"></div><div class="rearBed"></div><div class="tailgate">OUTRIDER</div><i class="rearWheel l"></i><i class="rearWheel r"></i><i class="tailLight l"></i><i class="tailLight r"></i></div>
+    <div id="raceTruck" class="raceVehicle player rearTruck playerRear"><div class="smoke"></div><div class="rearCab"></div><div class="rearBed"></div><div class="tailgate"><b>R/T</b></div><div class="greenRearStripe"></div><i class="rearWheel l"></i><i class="rearWheel r"></i><i class="tailLight l"></i><i class="tailLight r"></i></div>
   </div>
   <div class="dash"><div><small>RPM</small><b id="raceRpm">1100</b></div><div><small>GEAR</small><b id="raceGear">1</b></div><div><small>MPH</small><b id="raceSpeed">0</b></div><div><small>FEET</small><b id="raceDist">0</b></div></div>
   <div id="shiftLight" class="shiftLight">SHIFT</div><div class="tach"><i id="tachFill"></i></div>

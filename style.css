@@ -152,3 +152,32 @@
 #race .runningRoad:after{animation:laneRush .24s linear infinite}
 @keyframes laneRush{to{background-position:-70px 0}}
 @media(max-width:480px){#race .animatedRenegade{left:22px!important;top:291px!important;width:160px!important;height:70px!important;transform:translateX(var(--car-x,0px)) scale(.92) scaleX(var(--speed-stretch))!important;transform-origin:left center}}
+
+/* Alpha 1.3 — chase-camera race engine: both vehicles share one perspective and the 660' finish lives downtrack. */
+#race .perspectiveTrack{height:500px;overflow:hidden;position:relative;background:#05090c;border:1px solid #394247;border-radius:18px;isolation:isolate;perspective:520px;--road-shift:0px;--finish-y:-180px;--finish-scale:.12}
+#race .nightSky{position:absolute;inset:0 0 48% 0;background:radial-gradient(circle at 82% 18%,#dce0d8 0 16px,transparent 17px),linear-gradient(#06101a,#101a20 65%,#111711);z-index:0}
+#race .horizonTrees{position:absolute;left:-5%;right:-5%;bottom:-2px;height:88px;background:linear-gradient(135deg,transparent 0 8%,#071008 8% 18%,transparent 18% 25%,#081109 25% 39%,transparent 39% 46%,#071008 46% 62%,transparent 62% 68%,#071008 68% 84%,transparent 84%),#09120a;opacity:.95}
+#race .roadWorld{position:absolute;left:-36%;right:-36%;top:30%;bottom:-18%;background:linear-gradient(90deg,#171a18 0 24%,#333536 24% 76%,#171a18 76%);clip-path:polygon(38% 0,62% 0,82% 100%,18% 100%);z-index:1;overflow:hidden}
+#race .roadTexture{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 22px,#ffffff08 23px 24px),linear-gradient(90deg,transparent,#ffffff09 50%,transparent);background-position:0 var(--road-shift);}
+#race .centerMarks{position:absolute;left:49.5%;top:-120%;width:1%;height:240%;background:repeating-linear-gradient(0deg,#deded5 0 25px,transparent 25px 64px);transform-origin:top;opacity:.9}
+#race .edgeLine{position:absolute;top:0;bottom:0;width:3px;background:#dddcd3}.perspectiveTrack .leftEdge{left:37%}.perspectiveTrack .rightEdge{right:37%}
+#race .startPaint{position:absolute;z-index:3;left:15%;right:15%;bottom:111px;height:5px;background:#e6e4da;box-shadow:0 1px 3px #000}
+#race .finishGate{position:absolute;z-index:4;left:50%;top:var(--finish-y);width:420px;height:13px;transform:translateX(-50%) scale(var(--finish-scale));transform-origin:center;opacity:0;transition:opacity .2s;background:repeating-linear-gradient(90deg,#eee 0 22px,#111 22px 44px);box-shadow:0 0 0 5px #ddd}
+#race .finishGate.visible{opacity:1}.perspectiveTrack .finishGate span{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);white-space:nowrap;background:#080b0ddd;border:2px solid #777;padding:7px 12px;border-radius:6px;color:#fff;font-size:13px;font-weight:900;letter-spacing:1px}
+#race .distanceBoard{z-index:20;right:10px;top:10px;left:auto;background:#05090bdc;border:1px solid #6c7677;font-size:9px;padding:7px 10px}
+#race .flagger{z-index:15;left:47%;top:auto;bottom:128px;transform:scale(.72)}#race .stageLamp{z-index:16;left:44%;top:auto;bottom:116px}
+#race .rearTruck{position:absolute!important;z-index:10!important;transition:none!important;filter:drop-shadow(0 12px 6px #000c)!important;transform-origin:50% 100%!important}
+#race .playerRear{left:53%!important;top:auto!important;bottom:33px!important;width:128px!important;height:105px!important;transform:translateX(-50%) scale(var(--car-scale,1)) translateY(var(--car-y,0px))!important}
+#race .opponentRear{left:34%!important;top:auto!important;bottom:150px!important;width:78px!important;height:66px!important;transform:translateX(-50%) scale(var(--opp-scale,.78)) translateY(var(--opp-y,0px))!important;filter:brightness(.72) drop-shadow(0 8px 4px #000b)!important}
+#race .rearCab{position:absolute;left:19%;right:19%;top:3%;height:42%;background:linear-gradient(180deg,#182024,#07090a 60%,#22292b);clip-path:polygon(18% 0,82% 0,100% 100%,0 100%);border-bottom:2px solid #000}
+#race .rearCab:after{content:"";position:absolute;left:16%;right:16%;top:14%;height:55%;background:linear-gradient(#26373e,#07090b);clip-path:polygon(8% 0,92% 0,100% 100%,0 100%)}
+#race .rearBed{position:absolute;left:5%;right:5%;top:38%;bottom:14%;background:linear-gradient(90deg,#080a0a,#24292a 18%,#101313 50%,#24292a 82%,#080a0a);clip-path:polygon(4% 0,96% 0,100% 100%,0 100%);border:1px solid #303637}
+#race .tailgate{position:absolute;left:10%;right:10%;top:49%;height:28%;display:flex;align-items:center;justify-content:center;color:#777;font:900 8px Arial;letter-spacing:1px;border-top:1px solid #3c4242;border-bottom:1px solid #050606}.playerRear .tailgate b{color:#8dff00;font-style:italic}
+#race .greenRearStripe{position:absolute;left:8%;right:8%;top:73%;height:3px;background:#8dff00;box-shadow:0 0 8px #8dff00aa}
+#race .rearWheel{position:absolute;bottom:0;width:24%;height:32%;background:radial-gradient(ellipse,#202323 0 24%,#050606 25% 100%);border-radius:45%;box-shadow:inset 0 0 0 3px #111}.rearTruck .rearWheel.l{left:4%}.rearTruck .rearWheel.r{right:4%}
+#race .tailLight{position:absolute;top:55%;width:9%;height:12%;background:#68100d;box-shadow:0 0 6px #f22}.rearTruck .tailLight.l{left:8%}.rearTruck .tailLight.r{right:8%}
+#race .playerRear.launching{animation:rearLaunch .55s ease-out}@keyframes rearLaunch{0%{transform:translateX(-50%) scale(1) translateY(0)}35%{transform:translateX(-50%) scale(1.04) translateY(5px)}100%{transform:translateX(-50%) scale(1) translateY(0)}}
+#race .rearTruck.running{animation:raceVibe .07s linear infinite alternate}@keyframes raceVibe{to{margin-bottom:1px}}
+#race .rearTruck.burning .smoke,#race .rearTruck.spinning .smoke{display:block;position:absolute;left:-24px;right:-24px;bottom:-8px;height:45px;border-radius:50%;background:radial-gradient(ellipse,#d8d8d8aa,transparent 68%);filter:blur(6px);animation:smokePulse .25s infinite alternate}@keyframes smokePulse{to{transform:scale(1.25);opacity:.55}}
+#race .runningRoad .roadTexture,#race .runningRoad .centerMarks{animation:roadRush .17s linear infinite}@keyframes roadRush{to{background-position:0 64px}}
+@media(max-width:480px){#race .perspectiveTrack{height:500px}#race .playerRear{width:122px!important;height:100px!important}#race .opponentRear{width:72px!important;height:62px!important}}
