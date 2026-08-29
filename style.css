@@ -54,26 +54,20 @@
  .renderedRaceVehicle .vehicleRender{width:205%;height:150%;left:-50%;top:-27%}
 }
 
-
-/* Alpha 0.9 — full 1/8-mile two-lane street scene */
-.track{height:360px;background:linear-gradient(#08111d 0 37%,#071009 38% 45%,#171819 46% 100%);box-shadow:inset 0 -90px 110px #0007,0 14px 30px #0008}
-.track:after{display:none}
-.roadSurface{position:absolute;left:-4%;right:-4%;top:46%;bottom:-8%;background:repeating-linear-gradient(7deg,#222324 0 2px,#1c1d1e 2px 7px,#242526 7px 9px),linear-gradient(90deg,#151616,#292a2a 50%,#151616);clip-path:polygon(4% 0,96% 0,100% 100%,0 100%);box-shadow:inset 0 14px 20px #0008}
-.roadSurface:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 31px,#ffffff08 32px 33px,transparent 34px 69px);opacity:.5}
-.roadShoulder.far{position:absolute;left:0;right:0;top:43%;height:20px;background:linear-gradient(#1e251d,#10140f);border-bottom:3px solid #484338}
-.laneStripe{position:absolute;left:0;right:0;top:72%;height:3px;background:repeating-linear-gradient(90deg,transparent 0 28px,#d7c85c 28px 61px,transparent 61px 90px);opacity:.8;transform:skewY(-1deg)}
-.startLine{left:18.5%;top:46%;bottom:0;width:7px;background:#e8e8e8;transform:none;box-shadow:8px 0 0 #111,16px 0 0 #eee;opacity:.9;z-index:2}
-.finish{right:5.5%;top:45%;bottom:0;width:18px;background:repeating-linear-gradient(0deg,#eee 0 9px,#111 9px 18px);box-shadow:9px 0 0 #eee,-9px 0 0 #111,0 0 12px #000;z-index:2}
-.finish:before{content:"FINISH";position:absolute;top:-23px;left:-18px;font-size:9px;font-weight:1000;letter-spacing:1px;color:#fff;background:#111;padding:4px 5px;border:1px solid #ddd}
-.distanceSign{position:absolute;z-index:3;color:#ddd;background:#0d1111;border:1px solid #737878;border-radius:3px;padding:4px 6px;font-size:8px;font-weight:900;box-shadow:0 3px 8px #000;top:48%}
-.distanceSign.half{left:54%}.distanceSign.finishSign{right:1%;top:37%;text-align:center;color:#9cff00}.distanceSign.finishSign b{font-size:10px;color:#fff}
+/* Alpha 0.9 — race scene rebuild: full 660-ft side-view road */
+.track{height:350px;background:linear-gradient(#07111d 0 36%,#0b170e 36% 50%,#202224 50% 100%);overflow:hidden}
+.track:before{content:"";position:absolute;left:0;right:0;top:50%;bottom:0;background:linear-gradient(#2c2e30,#17191b);border-top:5px solid #777;box-shadow:inset 0 12px 30px #0008;z-index:0}
+.track:after{content:"";position:absolute;left:0;right:0;top:73%;height:3px;background:repeating-linear-gradient(90deg,#d7d7d7 0 28px,transparent 28px 58px);opacity:.72;z-index:1}
+.trees{top:92px;height:84px;z-index:0}.crowd{top:158px;z-index:1}.moon{z-index:1}
+.startLine{left:20%;top:50%;bottom:0;width:5px;transform:none;z-index:2;background:#eee;box-shadow:12px 0 0 #eee}
+.finish{display:none;right:-4px;top:50%;bottom:0;width:28px;z-index:3;background:repeating-linear-gradient(0deg,#eee 0 10px,#111 10px 20px);border-left:3px solid #fff;border-right:3px solid #fff}
+.finish.visible{display:block}.finish:before{content:"FINISH  •  660 FT";position:absolute;right:-3px;top:-31px;width:115px;padding:6px;background:#080909;color:#fff;border:1px solid #ddd;font-size:9px;font-weight:900;letter-spacing:1px;text-align:center}
 .roadDash{display:none}
-.flagger{left:22%;top:164px}.stageLamp{left:16.5%;top:205px}
-.raceVehicle{z-index:5;transition:left .035s linear}
-.raceVehicle.opponent{top:185px;transform:scale(.9);filter:brightness(.95)}
-.raceVehicle.player{top:252px}
-.raceVehicle.spriteVehicle{width:180px;height:76px}
-.renderedRaceVehicle{width:190px;height:86px;overflow:visible;border:0;background:transparent;box-shadow:none;border-radius:0}
-.renderedRaceVehicle .vehicleRender{position:absolute;width:205px;height:99px;left:-7px;top:-7px;object-fit:cover;object-position:center;clip-path:polygon(1% 41%,8% 29%,29% 23%,36% 8%,67% 6%,76% 19%,95% 26%,100% 41%,99% 80%,91% 91%,7% 91%,0 78%);filter:contrast(1.08) saturate(1.05) drop-shadow(0 9px 7px #000c)}
-.renderedRaceVehicle .smoke{right:-8px;bottom:4px}
-@media(max-width:480px){.track{height:345px}.raceVehicle.opponent{top:180px}.raceVehicle.player{top:242px}.raceVehicle.spriteVehicle{width:150px;height:68px}.renderedRaceVehicle{width:160px;height:76px}.renderedRaceVehicle .vehicleRender{width:174px;height:84px}.flagger{top:157px}.stageLamp{top:199px}}
+.raceVehicle{left:14%!important;transition:none;z-index:5}
+.raceVehicle.opponent{top:190px!important;transform:scale(.84);filter:brightness(.9)}
+.raceVehicle.player{top:260px!important}
+.raceVehicle.opponent.raceAhead{left:20%!important}.raceVehicle.opponent.raceBehind{left:10%!important}
+.flagger{left:25%;top:171px}.stageLamp{left:18%;top:245px}
+.track.runningRoad:before{animation:roadPulse .18s linear infinite}@keyframes roadPulse{50%{filter:brightness(1.08)}}
+.track .mileMarker{position:absolute;top:151px;right:18px;z-index:2;background:#e7e7df;color:#111;border:2px solid #222;padding:4px 5px;font-size:8px;font-weight:900}
+@media(max-width:480px){.track{height:350px}.raceVehicle.player{top:260px!important}.raceVehicle.opponent{top:193px!important}}
