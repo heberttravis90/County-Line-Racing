@@ -122,3 +122,33 @@
 #race .smoke{right:auto;left:-25px;bottom:3px}.track .raceVehicle.burning .smoke,.track .raceVehicle.spinning .smoke{z-index:-1}
 #race .runningRoad:after{animation:laneRush .28s linear infinite}@keyframes laneRush{to{background-position:76px 0}}
 @media(max-width:480px){#race .track{height:420px}#race .raceVehicle.player{top:281px!important;width:162px;height:91px!important}#race .raceVehicle.opponent{top:190px!important;width:154px;height:67px!important}#race .flagger{left:13%!important;top:171px}.track .stageLamp{left:8%!important;top:262px}}
+
+/* Alpha 1.2 — animated race vehicle system. Race mode no longer uses a flat truck PNG. */
+#race .animatedRenegade{--wheel-turn:0deg;--speed-stretch:1;position:absolute;left:30px!important;top:282px!important;width:178px!important;height:76px!important;overflow:visible!important;transform:translateX(var(--car-x,0px)) scaleX(var(--speed-stretch))!important;transform-origin:50% 80%;filter:drop-shadow(0 10px 5px #000c);z-index:8;transition:none}
+#race .animatedRenegade .raceBody{position:absolute;left:0;top:9px;width:178px;height:51px;transform-origin:72% 80%;background:linear-gradient(180deg,#24292a 0 7%,#060808 8% 35%,#161a1a 36% 54%,#030404 55% 75%,#111515 76% 100%);clip-path:polygon(0 42%,7% 30%,31% 26%,39% 4%,57% 4%,66% 29%,96% 34%,100% 46%,99% 78%,91% 86%,4% 86%,0 72%);border-bottom:2px solid #000;box-shadow:inset 0 -8px 12px #0008,inset 0 2px 2px #65707155}
+#race .animatedRenegade .cab{position:absolute;left:69px;top:1px;width:48px;height:24px;background:linear-gradient(150deg,#22292a,#080a0b 70%);clip-path:polygon(15% 0,69% 0,100% 100%,0 100%)}
+#race .animatedRenegade .glass{position:absolute;top:4px;height:17px;background:linear-gradient(145deg,#526970,#172328 45%,#050708);border:1px solid #52606688}
+#race .animatedRenegade .windshield{left:72px;width:18px;clip-path:polygon(25% 0,100% 0,82% 100%,0 100%)}
+#race .animatedRenegade .sideWindow{left:91px;width:21px;clip-path:polygon(0 0,72% 0,100% 100%,0 100%)}
+#race .animatedRenegade .bed{position:absolute;right:7px;top:23px;width:53px;height:3px;background:#4c555555}
+#race .animatedRenegade .hood{position:absolute;left:10px;top:24px;width:58px;height:3px;background:linear-gradient(90deg,#697273,#171b1c);transform:skew(-12deg)}
+#race .animatedRenegade .grille{position:absolute;left:1px;top:28px;width:14px;height:14px;background:repeating-linear-gradient(90deg,#111 0 2px,#8d9696 2px 3px);border:1px solid #8d9696}
+#race .animatedRenegade .headlamp{position:absolute;left:4px;top:25px;width:11px;height:5px;background:#fff2bd;box-shadow:0 0 8px #ffe8a8aa}
+#race .animatedRenegade .greenStripe{position:absolute;left:18px;right:12px;top:39px;height:2px;background:#8dff00;box-shadow:0 0 7px #8dff0088;transform:skewX(-18deg)}
+#race .animatedRenegade .rtBadge{position:absolute;right:45px;top:31px;color:#8dff00;font:italic 900 7px Arial;text-shadow:0 0 4px #8dff0066}
+#race .animatedRenegade .animWheel{display:block!important;position:absolute;bottom:1px;width:35px;height:35px;border-radius:50%;background:radial-gradient(circle,#a9afb0 0 10%,#303536 11% 20%,#858b8c 21% 25%,#101213 26% 47%,#050606 48% 69%,#17191a 70% 100%);border:3px solid #090a0a;box-shadow:inset 0 0 0 2px #303536,0 3px 3px #000;transform:rotate(var(--wheel-turn));z-index:10}
+#race .animatedRenegade .animWheel b{position:absolute;inset:8px;border-radius:50%;background:conic-gradient(#777 0 10deg,#222 10deg 40deg,#777 40deg 50deg,#222 50deg 80deg,#777 80deg 90deg,#222 90deg 120deg,#777 120deg 130deg,#222 130deg 160deg,#777 160deg 170deg,#222 170deg 200deg,#777 200deg 210deg,#222 210deg 240deg,#777 240deg 250deg,#222 250deg 280deg,#777 280deg 290deg,#222 290deg 320deg,#777 320deg 330deg,#222 330deg)}
+#race .animatedRenegade .animWheel.front{left:21px}.animatedRenegade .animWheel.rear{right:20px}
+#race .animatedRenegade.burning .animWheel.rear,#race .animatedRenegade.spinning .animWheel.rear{animation:wheelBurn .11s linear infinite}
+@keyframes wheelBurn{to{transform:rotate(calc(var(--wheel-turn) + 360deg))}}
+#race .animatedRenegade.launching .raceBody{animation:launchSquat .72s cubic-bezier(.15,.7,.2,1)}
+@keyframes launchSquat{0%{transform:translateY(0) rotate(0)}18%{transform:translateY(4px) rotate(-2.8deg)}48%{transform:translateY(-2px) rotate(2deg)}100%{transform:translateY(0) rotate(0)}}
+#race .animatedRenegade.running .raceBody{animation:bodyVibe .085s linear infinite alternate}
+@keyframes bodyVibe{from{margin-top:-.5px}to{margin-top:.7px}}
+#race .animatedRenegade.running .animWheel{filter:blur(.25px)}
+#race .raceVehicle.opponent .wheel{display:block!important;transform:rotate(var(--wheel-turn));transition:none}
+#race .runningRoad .roadStripe{animation:stripeRush .32s linear infinite}
+@keyframes stripeRush{from{transform:translateX(0)}to{transform:translateX(-70px)}}
+#race .runningRoad:after{animation:laneRush .24s linear infinite}
+@keyframes laneRush{to{background-position:-70px 0}}
+@media(max-width:480px){#race .animatedRenegade{left:22px!important;top:291px!important;width:160px!important;height:70px!important;transform:translateX(var(--car-x,0px)) scale(.92) scaleX(var(--speed-stretch))!important;transform-origin:left center}}

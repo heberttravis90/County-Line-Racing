@@ -42,7 +42,14 @@
     <div class="skyGlow"></div><div class="moon"></div><div class="trees"></div><div class="crowd"></div><div class="roadShoulder topShoulder"></div><div class="roadShoulder bottomShoulder"></div><div class="laneDivider"></div><div class="finishPost topPost"></div><div class="finishPost bottomPost"></div><div class="distanceBoard" id="distanceBoard">START • 0 / 660 FT</div><div class="finish"></div><div class="startLine"></div><div class="roadStripe stripe1"></div><div class="roadStripe stripe2"></div><div class="roadStripe stripe3"></div><div class="roadStripe stripe4"></div>
     <div class="flagger"><span>●</span><i id="flashLamp"></i></div><div id="stageLamp" class="stageLamp"></div>
     <div id="oppTruck" class="raceVehicle opponent spriteVehicle"><img class="vehicleBody" src="outrider-body.svg" alt="Liberty Outrider opponent truck"><i class="wheel front"></i><i class="wheel rear"></i></div>
-    <div id="raceTruck" class="raceVehicle player renderedRaceVehicle"><div class="smoke"></div><img class="vehicleRender" src="renegade-race.png" alt="Iron Horse Renegade R/T race truck"></div>
+    <div id="raceTruck" class="raceVehicle player animatedRenegade">
+      <div class="smoke"></div>
+      <div class="raceBody">
+        <div class="bed"></div><div class="cab"></div><div class="glass windshield"></div><div class="glass sideWindow"></div>
+        <div class="hood"></div><div class="grille"></div><div class="headlamp"></div><div class="greenStripe"></div><div class="rtBadge">R/T</div>
+      </div>
+      <i class="animWheel front"><b></b></i><i class="animWheel rear"><b></b></i>
+    </div>
     <div class="roadDash"></div>
   </div>
   <div class="dash"><div><small>RPM</small><b id="raceRpm">1100</b></div><div><small>GEAR</small><b id="raceGear">1</b></div><div><small>MPH</small><b id="raceSpeed">0</b></div><div><small>FEET</small><b id="raceDist">0</b></div></div>
