@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 250">
+<defs><linearGradient id="p" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#9aa0a0"/><stop offset=".35" stop-color="#4c5354"/><stop offset=".75" stop-color="#252a2b"/><stop offset="1" stop-color="#111414"/></linearGradient><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#91aab1"/><stop offset=".45" stop-color="#314147"/><stop offset="1" stop-color="#080a0b"/></linearGradient></defs>
+<ellipse cx="350" cy="218" rx="310" ry="18" fill="#000" opacity=".55"/>
+<path d="M26 158 L43 132 Q60 118 113 111 L245 105 L285 56 Q299 39 327 37 L405 37 Q431 39 446 57 L489 106 L639 115 Q665 119 680 143 L681 177 L663 191 L40 191 L23 176 Z" fill="url(#p)" stroke="#a1a7a7" stroke-width="3"/>
+<path d="M285 57 Q300 43 326 42 H352 V103 H252 Z" fill="url(#g)" stroke="#68787c" stroke-width="3"/><path d="M360 42 H402 Q424 44 437 61 L475 103 H360 Z" fill="url(#g)" stroke="#68787c" stroke-width="3"/>
+<path d="M245 106 L279 61 M356 39 V105" stroke="#202526" stroke-width="7"/><path d="M489 108 H635 L650 124 H500 Z" fill="#363c3d" stroke="#858d8e" stroke-width="3"/>
+<path d="M42 137 L114 120 L241 113" fill="none" stroke="#c3c8c8" stroke-width="4"/><path d="M24 154 L74 146 L75 172 L23 172 Z" fill="#303536" stroke="#d1d4d4" stroke-width="3"/><rect x="31" y="148" width="40" height="14" rx="2" fill="#f8e9bd"/>
+<path d="M22 175 H88" stroke="#aeb3b3" stroke-width="7"/><path d="M89 139 H238" stroke="#242829" stroke-width="4"/><path d="M490 132 H653" stroke="#d2d6d6" stroke-width="3"/><path d="M100 169 H620" stroke="#22292b" stroke-width="6"/><path d="M303 109 V185 M454 108 V185" stroke="#151919" stroke-width="3"/><rect x="387" y="120" width="24" height="6" rx="3" fill="#d1d5d5"/><rect x="638" y="132" width="31" height="25" rx="2" fill="#a52a22"/>
+<text x="502" y="163" font-family="Arial" font-weight="800" font-size="14" fill="#e5e8e8">OUTRIDER</text><path d="M114 189 A59 59 0 0 1 232 189 M504 189 A63 63 0 0 1 630 189" fill="none" stroke="#111" stroke-width="23"/>
+</svg>
