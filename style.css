@@ -27,3 +27,13 @@
 .track:after{content:"";position:absolute;left:0;right:0;bottom:0;height:47%;background:linear-gradient(100deg,transparent 0 49%,#d8c44b55 49.4% 50.2%,transparent 50.6%),repeating-linear-gradient(90deg,#ffffff08 0 1px,transparent 1px 38px);clip-path:polygon(14% 0,86% 0,100% 100%,0 100%);pointer-events:none}
 .raceVehicle{width:170px;height:76px}.raceVehicle .truckBody{height:57px;bottom:14px}.raceVehicle .wheel{width:39px;height:39px;border-width:7px;bottom:1px}.raceVehicle .wheel.front{left:24px}.raceVehicle .wheel.rear{right:20px}.raceVehicle.opponent{top:178px}.raceVehicle.player{top:242px}.raceVehicle .doorBadge{font-size:5px}
 @media(max-width:480px){.garageScene .realistic.large{width:350px}.realistic .wheel{width:58px;height:58px;border-width:10px}.raceVehicle{width:145px;height:68px}.raceVehicle .truckBody{height:50px}.raceVehicle .wheel{width:34px;height:34px}.track{height:315px}.raceVehicle.opponent{top:174px}.raceVehicle.player{top:230px}}
+
+/* Alpha 0.6: actual vector vehicle art replaces CSS body placeholders */
+.spriteVehicle{position:absolute;isolation:isolate}
+.spriteVehicle .vehicleBody{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:2;filter:drop-shadow(0 10px 8px #000b)}
+.garageScene .spriteVehicle.large{width:520px;height:190px;left:50%;bottom:22px;transform:translateX(-50%)}
+.spriteVehicle .wheel{z-index:3;background:radial-gradient(circle,#aeb5b6 0 10%,#303536 11% 22%,#080909 23% 59%,#242829 60% 66%,#050606 67%);border:0;box-shadow:inset 0 0 0 4px #090a0a,0 7px 7px #0009}
+.garageScene .spriteVehicle .wheel{width:70px;height:70px;bottom:20px}.garageScene .spriteVehicle .wheel.front{left:83px}.garageScene .spriteVehicle .wheel.rear{right:53px}
+.raceVehicle.spriteVehicle{width:190px;height:80px}.raceVehicle.spriteVehicle .vehicleBody{inset:-4px 0 0 0}.raceVehicle.spriteVehicle .wheel{width:34px;height:34px;bottom:5px}.raceVehicle.spriteVehicle .wheel.front{left:31px}.raceVehicle.spriteVehicle .wheel.rear{right:20px}
+.raceVehicle.spriteVehicle.opponent .wheel.front{left:31px}.raceVehicle.spriteVehicle.opponent .wheel.rear{right:20px}
+@media(max-width:480px){.garageScene .spriteVehicle.large{width:390px;height:160px;bottom:34px}.garageScene .spriteVehicle .wheel{width:54px;height:54px;bottom:19px}.garageScene .spriteVehicle .wheel.front{left:63px}.garageScene .spriteVehicle .wheel.rear{right:40px}.raceVehicle.spriteVehicle{width:155px;height:70px}.raceVehicle.spriteVehicle .wheel{width:29px;height:29px;bottom:5px}.raceVehicle.spriteVehicle .wheel.front{left:25px}.raceVehicle.spriteVehicle .wheel.rear{right:16px}}
